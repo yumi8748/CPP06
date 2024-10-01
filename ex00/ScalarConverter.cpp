@@ -37,10 +37,25 @@ ScalarConverter &				ScalarConverter::operator=( ScalarConverter const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-isChar(std::string input)
-isInt(std::string input)
-isFloat(std::string input)
-isDouble(std::string input)
+std::string	isChar(std::string input)
+{
+
+}
+
+std::string	isInt(std::string input)
+{
+
+}
+
+std::string	isFloat(std::string input)
+{
+
+}
+
+std::string	isDouble(std::string input)
+{
+
+}
 
 void	ScalarConverter::convert(std::string input)
 {
@@ -62,31 +77,26 @@ void	ScalarConverter::convert(std::string input)
         return;
 	}
 	//check below print session, should create other functions?
-	if (input.compare("nan") == 0 || input.compare("nanf") == 0
-		|| input.compare("inf") == 0 || input.compare("inff") == 0
-		|| input.compare("+inf") == 0 || input.compare("+inff") == 0
-		|| input.compare("-inf") == 0 || input.compare("-inff") == 0)
+	if (input == "nan" || input == "nanf"
+        || input == "inf" || input == "inff"
+        || input == "+inf" || input == "+inff"
+        || input == "-inf" || input == "-inff")
 	{
 		std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
+		if (input == "nanf" || input == "inff" || input == "+inff" || input == "-inff")
+        {
+            std::cout << "float: " << input << std::endl;
+            std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
+        }
+        else
+        {
+            std::cout << "float: " << input << "f" << std::endl;
+            std::cout << "double: " << input << std::endl;
+        }
+        return; 
 	}
-	if (input.back() == 'f')
-	{
-    	// 處理 float 型別
-        std::cout << "float: " << input << std::endl;
-        // 去掉 'f' 後對應 double 型別
-        std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-    }
-	else
-	{
-        // 處理 double 型別
-        std::cout << "float: " << input + "f" << std::endl;  // 將 double 值加上 'f'
-        std::cout << "double: " << input << std::endl;
-    }
-    return;
-
-
-
+	
 	std::cout << "char: " << isChar(input) << std::endl;
 	std::cout << "int: " << isInt(input) << std::endl;
 	std::cout << "float: " << isFloat(input)<< std::endl;
