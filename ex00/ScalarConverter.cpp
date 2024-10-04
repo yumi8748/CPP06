@@ -29,33 +29,14 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter &	ScalarConverter::operator=( ScalarConverter const & rhs )
 {
-	if ( this != &rhs ){}
+	if ( this != &rhs )
 		return (*this);
+    return *this;
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-// std::string	isChar(std::string input)
-// {
-// 	int i = 0;
-// 	i = std::stoi(input);
-// 	try{
-// 		i = std::stoi(input);
-// 	}
-// 	catch (const std::invalid_argument &e){
-// 		return ("Invalid input");
-// 	}
-// 	catch (const std::out_of_range &e){
-// 		return ("Out of range");
-// 	}
-// 	char c = static_cast<char>(i);
-// 	if (std::isprint(c))
-// 		return (std::string("'") + c + std::string("'"));
-// 	else
-// 		return ("Non displayable");
-// }
 
 std::string isChar(std::string input)
 {
